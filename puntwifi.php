@@ -47,7 +47,8 @@
     if(isset($_POST['btnAceptar'])) {
       $acc = $_POST['hdacc'];
       $lin = $_POST['hdlin'];
-      echo $acc."####".$lin;
+      $output = true;
+      $message = "";
       if ($acc == 'N') {
         $codi_CAPA = $_POST['txtcodicapa'];
         $capa_GENERICA = $_POST['txtcapagenerica'];
@@ -70,11 +71,14 @@
         $json = json_encode($vPuntWifi);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "http://localhost:8084/csvPuntsWifi/api/ws/add");
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','authorization: tr12fi34ma56')));
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,$json);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
+            if ($output == "false") {
+            	$message = "No se ha podido crear el punto wifi";
+            }
         curl_close($ch);
       }
       else {
@@ -97,25 +101,30 @@
           $telefon = $_POST['txttelefon'];
           $vPuntWifi = new puntwifi($lin, $codi_CAPA, $capa_GENERICA, $nom_CAPA, $ed50_COORD_X, $ed50_COORD_Y, $etrs89_COORD_X, $etrs89_COORD_Y, $longitud, $latitud, $equipament, $districte, $barri, $nom_DISTRICTE, $nom_BARRI, $adreca, $telefon);
           $json = json_encode($vPuntWifi);
-          echo $json;
           $ch = curl_init();
           curl_setopt($ch, CURLOPT_URL, "http://localhost:8084/csvPuntsWifi/api/ws/update");
-          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($json)));
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($json),'authorization: tr12fi34ma56'));
           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
           curl_setopt($ch, CURLOPT_POSTFIELDS,$json);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
           $output = curl_exec($ch);
+			if ($output == "false") {
+				$message = "No se ha podido guardar el punto wifi";
+			}
           curl_close($ch);
         }
         else {
           if ($acc == 'D') {
-            echo "@@=".$lin;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, "http://localhost:8084/csvPuntsWifi/api/ws/delete/".$lin);
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array('authorization: tr12fi34ma56'));
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
             //curl_setopt($ch, CURLOPT_POSTFIELDS,$json);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             $output = curl_exec($ch);
+            if ($output == "false") {
+            	$message = "No se ha podido eliminar el punto wifi";
+            }
             curl_close($ch);
           }
 
@@ -124,8 +133,13 @@
     }
     else {
     }
-    header("Location: lista.php");
-    die();
+    if ($output == "false") {
+		echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+    else {
+		header("Location: lista.php");
+		die();  
+	}  	
 
   }
 ?>
@@ -148,8 +162,10 @@
   </head>
   <body>
 <?php
-  $acc = $_GET['acc'];
-  $lin = $_GET['lin'];
+	if (!isset($acc)&&!isset($lin)) {
+	  $acc = $_GET['acc'];
+	  $lin = $_GET['lin'];
+	}
   if ($acc == 'N') // Nuevo
   {
     $linea = 0;

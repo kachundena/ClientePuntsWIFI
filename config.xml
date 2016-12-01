@@ -2,7 +2,7 @@
 <config>
 	<rutas>
 		<rest><![CDATA[http://localhost:8084/csvPuntsWifi/api/ws]]></rest>
-		<maps><![CDATA[https://maps.googleapis.com/maps/api/js?key=<clave_api_maps>&signed_in=true&callback=initMap]]></maps>
+		<maps><![CDATA[https://maps.googleapis.com/maps/api/js?key=<PONER KEY GOOGLE MAPS>&signed_in=true&callback=initMap]]></maps>
 	</rutas>
 	<districtes>
 		<districte><id>1</id><deno>Ciutat Vella</deno></districte>
