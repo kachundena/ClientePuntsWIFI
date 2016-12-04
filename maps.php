@@ -24,26 +24,49 @@
     $xml = simplexml_load_file("config.xml");
     $str = $xml->asXML();
     $rutaRest = $xml->rutas[0]->rest;
+    $rutaBarri = $xml->rutas[0]->barri;
+    $rutaDistricte = $xml->rutas[0]->districte;
     $rutaMaps = $xml->rutas[0]->maps;
-    $districtes = array();
-    $i = 0;
-    foreach ($xml->districtes[0]->districte as $districte) {
-      $districtes[$i]["id"] =$districte->id;
-      $districtes[$i]["deno"] = $districte->deno;
-      $i++;
-    }
-    $barris = array();
-    $i = 0;
-    foreach ($xml->barris[0]->barri as $barri) {
-      $barris[$i]["id"] =$barri->id;
-      $barris[$i]["districte"] = $barri->districte;
-      $barris[$i]["deno"] = $barri->deno;
-      $i++;
-    }
-  } 
+  }
   else {
       exit('Error al abrir el fichero config.xml');
   }
+  if ($rutaDistricte != "") {
+    $rutaGetDistrictes = $rutaDistricte."/lista";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $rutaGetDistrictes);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $output = curl_exec($ch);
+    curl_close($ch);
+    $districtes = json_decode($output, true);
+    $arraydistrictes = array();
+    $i = 0;
+    foreach ($districtes as $key) {
+      $arraydistrictes[$i]["id"] =$key['codigo'];
+      $arraydistrictes[$i]["deno"] = str_replace("'","`",$key['nombre']);
+      $i++;
+    }
+  }
+
+  if ($rutaBarri != "") {
+    if (isset($_POST['cmbdistritos'])) {
+      $rutaGetBarris = $rutaBarri."/districte/".$_POST['cmbdistritos'];
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $rutaGetBarris);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      $output = curl_exec($ch);
+      curl_close($ch);
+      $barris = json_decode($output, true);
+      $arraybarris = array();
+      $i = 0;
+      foreach ($barris as $key) {
+        $arraybarris[$i]["id"] =$key['barri'];
+        $arraybarris[$i]["deno"] = str_replace("'","`",$key['nombre']);
+        $i++;
+      }
+    }
+  }
+
 
   $ch = curl_init();
   if(isset($_POST['btnDistrito'])) {
@@ -77,42 +100,41 @@
     <form role="form" id="frmPuntWifi" method="post" action="maps.php">
       <div class="form-group">
         <label for="sel1">Distritos</label>
-        <select class="form-control" name="cmbdistritos">
+        <select class="form-control" name="cmbdistritos" onchange='this.form.submit()'>
 <?php
-for($i=0; $i<count($districtes); $i++) {
+for($i=0; $i<count($arraydistrictes); $i++) {
       //saco el valor de cada elemento
-    if ($_POST['cmbdistritos'] == $districtes[$i]["id"]) {
+    if ($_POST['cmbdistritos'] == $arraydistrictes[$i]["id"]) {
       $selected = " selected ";
     }
     else {
       $selected = " ";
     }
-    echo "<option value='".$districtes[$i]["id"]."' ".$selected.">".$districtes[$i]["deno"]."</option>";
+    echo "<option value='".$arraydistrictes[$i]["id"]."' ".$selected.">".$arraydistrictes[$i]["deno"]."</option>";
     echo "<br>";
 }
 ?>
         </select>
-        <button type="submit" name="btnDistrito" class="btn btn-primary">Buscar por distrito</button>
-      </div>    
+      </div>
       <div class="form-group">
         <label for="sel1">Barrios</label>
         <select class="form-control" name="cmbbarrios">
 <?php
 for($i=0; $i<count($barris); $i++) {
       //saco el valor de cada elemento
-    if ($_POST['cmbbarrios'] == $barris[$i]["id"]) {
+    if ($_POST['cmbbarrios'] == $arraybarris[$i]["id"]) {
       $selected = " selected ";
     }
     else {
       $selected = " ";
     }
-    echo "<option value='".$barris[$i]["id"]."' ".$selected.">".$barris[$i]["deno"]."</option>";
+    echo "<option value='".$arraybarris[$i]["id"]."' ".$selected.">".$arraybarris[$i]["deno"]."</option>";
     echo "<br>";
 }
 ?>
         </select>
-        <button type="submit" name="btnBarrio" class="btn btn-primary">Buscar por barrio</button>
-      </div>    
+        <button type="submit" name="btnBarrio" class="btn btn-primary">Buscar Puntos Wifi</button>
+      </div>
     </form>
     <div id="map"></div>
 
@@ -164,7 +186,7 @@ function setMarkers(map) {
     </script>
     <script async defer
         src="<?php echo $rutaMaps; ?>">
-          
+
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

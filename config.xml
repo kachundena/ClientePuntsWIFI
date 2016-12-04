@@ -2,30 +2,8 @@
 <config>
 	<rutas>
 		<rest><![CDATA[http://localhost:8084/csvPuntsWifi/api/ws]]></rest>
-		<maps><![CDATA[https://maps.googleapis.com/maps/api/js?key=<PONER KEY GOOGLE MAPS>&signed_in=true&callback=initMap]]></maps>
+		<districte><![CDATA[http://localhost:8084/csvDistrictes/api/ws]]></districte>
+		<barri><![CDATA[http://localhost:8084/csvBarris/api/ws]]></barri>
+		<maps><![CDATA[https://maps.googleapis.com/maps/api/js?key=<PON TU CODIGO>&signed_in=true&callback=initMap]]></maps>
 	</rutas>
-	<districtes>
-		<districte><id>1</id><deno>Ciutat Vella</deno></districte>
-		<districte><id>2</id><deno>Eixample</deno></districte>
-		<districte><id>3</id><deno>Sants-Monjuic</deno></districte>
-		<districte><id>4</id><deno>Les Corts</deno></districte>
-		<districte><id>5</id><deno>Sarria-Sant Gervasi</deno></districte>
-		<districte><id>6</id><deno>Gracia</deno></districte>
-		<districte><id>7</id><deno>Horta-Guinardo</deno></districte>
-		<districte><id>8</id><deno>Nou Barris</deno></districte>
-		<districte><id>9</id><deno>Sant Andreu</deno></districte>
-		<districte><id>10</id><deno>Sant Marti</deno></districte>
-	</districtes>
-	<barris>
-		<barri><id>1</id><districte>1</districte><deno>El raval</deno></barri>
-		<barri><id>2</id><districte>1</districte><deno>El Barri Gotic</deno></barri>
-		<barri><id>3</id><districte>1</districte><deno>La Barceloneta</deno></barri>
-		<barri><id>4</id><districte>1</districte><deno>Sant Pere, Santa Caterina i la Ribera</deno></barri>
-		<barri><id>5</id><districte>2</districte><deno>El Fort Pienc</deno></barri>
-		<barri><id>6</id><districte>2</districte><deno>La Sagrada Familia</deno></barri>
-		<barri><id>7</id><districte>2</districte><deno>La Dreta de l`Eixample</deno></barri>
-		<barri><id>8</id><districte>2</districte><deno>L`Antiga Esquerra de l`Eixample</deno></barri>
-		<barri><id>9</id><districte>2</districte><deno>La Nova Esquerra de l`Eixample</deno></barri>
-		<barri><id>10</id><districte>2</districte><deno>Sant Antoni</deno></barri>
-	</barris>
 </config>
