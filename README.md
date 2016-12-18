@@ -32,3 +32,10 @@ Utiliza 4 APIs diferentes
 En los 3 primeros casos el numero de puerto os puede variar.
 
 Para los servicios REST de tipo POST, PUT y DELETE es necesario introducir la clave de autorización correcta.
+
+Instalación
+-----------
+
+Crea una carpeta en tu servidor apache y copia el contenido en la misma estructura
+
+Asociale la carpeta al grupo www-data

@@ -1,5 +1,5 @@
 <?php
-  class puntwifi {
+ class puntwifi {
 
    var $linea;
    var $codi_CAPA;
@@ -71,7 +71,7 @@
         $json = json_encode($vPuntWifi);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "http://localhost:8084/csvPuntsWifi/api/ws/add");
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','authorization: tr12fi34ma56')));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','authorization: tr12fi34ma56'));
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,$json);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -138,10 +138,11 @@
     }
     else {
 		header("Location: lista.php");
-		die();  
-	}  	
+		die();
+	}
 
   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
