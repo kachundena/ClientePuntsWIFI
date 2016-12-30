@@ -58,8 +58,8 @@
         <tr>
           <?php
             echo "<td><a href='puntwifi.php?acc=M&lin=".$key['linea']."'><img src='img/flecha.gif'></td>";
-            echo "<td>".$key['nom_DISTRICTE']."</td>";
-            echo "<td>".$key['nom_BARRI']."</td>";
+            echo "<td>".$key['nomDistricte']."</td>";
+            echo "<td>".$key['nomBarri']."</td>";
             echo "<td>".$key['adreca']."</td>";
             echo "<td><a href='puntwifi.php?acc=D&lin=".$key['linea']."'><img src='img/borrar.png'></td>";
           ?>
