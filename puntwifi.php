@@ -1,44 +1,44 @@
 <?php
  class puntwifi {
 
-   var $linea;
-   var $codi_CAPA;
-   var $capa_GENERICA;
-   var $nom_CAPA;
-   var $ed50_COORD_X;
-   var $ed50_COORD_Y;
-   var $etrs89_COORD_X;
-   var $etrs89_COORD_Y;
-   var $longitud;
-   var $latitud;
-   var $equipament;
-   var $districte;
-   var $barri;
-   var $nom_DISTRICTE;
-   var $nom_BARRI;
-   var $adreca;
-   var $telefon;
+   var $Linea;
+   var $CodiCapa;
+   var $CapaGenerica;
+   var $NomCapa;
+   var $ED50CoordX;
+   var $ED50CoordY;
+   var $ETRS89CoordX;
+   var $ETRS89CoordY;
+   var $Longitud;
+   var $Latitud;
+   var $Equipament;
+   var $Districte;
+   var $Barri;
+   var $NomDistricte;
+   var $NomBarri;
+   var $Adreca;
+   var $Telefon;
 
 
-   function puntwifi($linea, $codi_CAPA, $capa_GENERICA, $nom_CAPA, $ed50_COORD_X, $ed50_COORD_Y, $etrs89_COORD_X, $etrs89_COORD_Y,
-   $longitud, $latitud, $equipament, $districte, $barri, $nom_DISTRICTE, $nom_BARRI, $adreca, $telefon) {
-     $this->linea = $linea;
-     $this->codi_CAPA = $codi_CAPA;
-     $this->capa_GENERICA = $capa_GENERICA;
-     $this->nom_CAPA = $nom_CAPA;
-     $this->ed50_COORD_X = $ed50_COORD_X;
-     $this->ed50_COORD_Y = $ed50_COORD_Y;
-     $this->etrs89_COORD_X = $etrs89_COORD_X;
-     $this->etrs89_COORD_Y = $etrs89_COORD_Y;
-     $this->longitud = $longitud;
-     $this->latitud = $latitud;
-     $this->equipament = $equipament;
-     $this->districte = $districte;
-     $this->barri = $barri;
-     $this->nom_DISTRICTE = $nom_DISTRICTE;
-     $this->nom_BARRI = $nom_BARRI;
-     $this->adreca = $adreca;
-     $this->telefon = $telefon;
+   function puntwifi($Linea, $CodiCapa, $CapaGenerica, $NomCapa, $ED50CoordX, $ED50CoordY, $ETRS89CoordX, $ETRS89CoordY,
+   $Longitud, $Latitud, $Equipament, $Districte, $Barri, $NomDistricte, $NomBarri, $Adreca, $Telefon) {
+     $this->Linea = $Linea;
+     $this->CodiCapa = $CodiCapa;
+     $this->CapaGenerica = $CapaGenerica;
+     $this->NomCapa = $NomCapa;
+     $this->ED50CoordX = $ED50CoordX;
+     $this->ED50CoordY = $ED50CoordY;
+     $this->ETRS89CoordX = $ETRS89CoordX;
+     $this->ETRS89CoordY = $ETRS89CoordY;
+     $this->Longitud = $Longitud;
+     $this->Latitud = $Latitud;
+     $this->Equipament = $Equipament;
+     $this->Districte = $Districte;
+     $this->Barri = $Barri;
+     $this->NomDistricte = $NomDistricte;
+     $this->NomBarri = $NomBarri;
+     $this->Adreca = $Adreca;
+     $this->Telefon = $Telefon;
    }
 
  }
@@ -50,24 +50,24 @@
       $output = true;
       $message = "";
       if ($acc == 'N') {
-        $codi_CAPA = $_POST['txtcodicapa'];
-        $capa_GENERICA = $_POST['txtcapagenerica'];
-        $nom_CAPA = $_POST['txtnomcapa'];
-        $ed50_COORD_X = (float) $_POST['txted50coordx'];
-        $ed50_COORD_Y = (float) $_POST['txted50coordy'];
-        $etrs89_COORD_X = (float) $_POST['txtetrs89coordx'];
-        $etrs89_COORD_Y = (float) $_POST['txtetrs89coordy'];
-        $longitud = (float) $_POST['txtlongitud'];
-        $latitud = (float) $_POST['txtlatitud'];
-        $equipament = $_POST['txtequipament'];
-        $districte = (int) $_POST['txtdistricte'];
-        $barri = (int) $_POST['txtbarri'];
-        $nom_DISTRICTE = $_POST['txtnomdistricte'];
-        $nom_BARRI = $_POST['txtnombarri'];
-        $adreca = $_POST['txtadreca'];
-        $telefon = $_POST['txttelefon'];
-        $vPuntWifi = new puntwifi($lin, $codi_CAPA, $capa_GENERICA, $nom_CAPA, $ed50_COORD_X, $ed50_COORD_Y, $etrs89_COORD_X, $etrs89_COORD_Y,
-        $longitud, $latitud, $equipament, $districte, $barri, $nom_DISTRICTE, $nom_BARRI, $adreca, $telefon);
+        $CodiCapa = $_POST['txtcodicapa'];
+        $CapaGenerica = $_POST['txtcapagenerica'];
+        $NomCapa = $_POST['txtnomcapa'];
+        $ED50CoordX = (float) $_POST['txted50coordx'];
+        $ED50CoordY = (float) $_POST['txted50coordy'];
+        $ETRS89CoordX = (float) $_POST['txtetrs89coordx'];
+        $ETRS89CoordY = (float) $_POST['txtetrs89coordy'];
+        $Longitud = (float) $_POST['txtlongitud'];
+        $Latitud = (float) $_POST['txtlatitud'];
+        $Equipament = $_POST['txtequipament'];
+        $Districte = (int) $_POST['txtdistricte'];
+        $Barri = (int) $_POST['txtbarri'];
+        $NomDistricte = $_POST['txtnomdistricte'];
+        $NomBarri = $_POST['txtnombarri'];
+        $Adreca = $_POST['txtadreca'];
+        $Telefon = $_POST['txttelefon'];
+        $vPuntWifi = new puntwifi($lin, $CodiCapa, $CapaGenerica, $NomCapa, $ED50CoordX, $ED50CoordY, $ETRS89CoordX, $ETRS89CoordY,
+        $Longitud, $Latitud, $Equipament, $Districte, $Barri, $NomDistricte, $NomBarri, $Adreca, $Telefon);
         $json = json_encode($vPuntWifi);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "http://localhost:8084/csvPuntsWifi/api/ws/add");
@@ -83,23 +83,24 @@
       }
       else {
         if ($acc == 'M') {
-          $codi_CAPA = $_POST['txtcodicapa'];
-          $capa_GENERICA = $_POST['txtcapagenerica'];
-          $nom_CAPA = $_POST['txtnomcapa'];
-          $ed50_COORD_X = (float) $_POST['txted50coordx'];
-          $ed50_COORD_Y = (float) $_POST['txted50coordy'];
-          $etrs89_COORD_X = (float) $_POST['txtetrs89coordx'];
-          $etrs89_COORD_Y = (float) $_POST['txtetrs89coordy'];
-          $longitud = (float) $_POST['txtlongitud'];
-          $latitud = (float) $_POST['txtlatitud'];
-          $equipament = $_POST['txtequipament'];
-          $districte = (int) $_POST['txtdistricte'];
-          $barri = (int) $_POST['txtbarri'];
-          $nom_DISTRICTE = $_POST['txtnomdistricte'];
-          $nom_BARRI = $_POST['txtnombarri'];
-          $adreca = $_POST['txtadreca'];
-          $telefon = $_POST['txttelefon'];
-          $vPuntWifi = new puntwifi($lin, $codi_CAPA, $capa_GENERICA, $nom_CAPA, $ed50_COORD_X, $ed50_COORD_Y, $etrs89_COORD_X, $etrs89_COORD_Y, $longitud, $latitud, $equipament, $districte, $barri, $nom_DISTRICTE, $nom_BARRI, $adreca, $telefon);
+          $CodiCapa = $_POST['txtcodicapa'];
+          $CapaGenerica = $_POST['txtcapagenerica'];
+          $NomCapa = $_POST['txtnomcapa'];
+          $ED50CoordX = (float) $_POST['txted50coordx'];
+          $ED50CoordY = (float) $_POST['txted50coordy'];
+          $ETRS89CoordX = (float) $_POST['txtetrs89coordx'];
+          $ETRS89CoordY = (float) $_POST['txtetrs89coordy'];
+          $Longitud = (float) $_POST['txtlongitud'];
+          $Latitud = (float) $_POST['txtlatitud'];
+          $Equipament = $_POST['txtequipament'];
+          $Districte = (int) $_POST['txtdistricte'];
+          $Barri = (int) $_POST['txtbarri'];
+          $NomDistricte = $_POST['txtnomdistricte'];
+          $NomBarri = $_POST['txtnombarri'];
+          $Adreca = $_POST['txtadreca'];
+          $Telefon = $_POST['txttelefon'];
+          $vPuntWifi = new puntwifi($lin, $CodiCapa, $CapaGenerica, $NomCapa, $ED50CoordX, $ED50CoordY, $ETRS89CoordX, $ETRS89CoordY,
+          $Longitud, $Latitud, $Equipament, $Districte, $Barri, $NomDistricte, $NomBarri, $Adreca, $Telefon);
           $json = json_encode($vPuntWifi);
           $ch = curl_init();
           curl_setopt($ch, CURLOPT_URL, "http://localhost:8084/csvPuntsWifi/api/ws/update");
@@ -169,23 +170,23 @@
 	}
   if ($acc == 'N') // Nuevo
   {
-    $linea = 0;
-    $codi_CAPA = '';
-    $capa_GENERICA = '';
-    $nom_CAPA = '';
-    $ed50_COORD_X = '';
-    $ed50_COORD_Y = '';
-    $etrs89_COORD_X = '';
-    $etrs89_COORD_Y = '';
-    $longitud = '';
-    $latitud = '';
-    $equipament = '';
-    $districte = '';
-    $barri = '';
-    $nom_DISTRICTE = '';
-    $nom_BARRI = '';
-    $adreca = '';
-    $telefon = '';
+    $Linea = 0;
+    $CodiCapa = '';
+    $CapaGenerica = '';
+    $NomCapa = '';
+    $ED50CoordX = '';
+    $ED50CoordY = '';
+    $ETRS89CoordX = '';
+    $ETRS89CoordY = '';
+    $Longitud = '';
+    $Latitud = '';
+    $Equipament = '';
+    $Districte = '';
+    $Barri = '';
+    $NomDistricte = '';
+    $NomBarri = '';
+    $Adreca = '';
+    $Telefon = '';
     $titulo = 'Nuevo Punto WIFI';
     $estilo = '';
   }
@@ -197,22 +198,22 @@
     $output = curl_exec($ch);
     curl_close($ch);
     $puntwifi = json_decode($output, true);
-    $codi_CAPA = $puntwifi['codi_CAPA'];
-    $capa_GENERICA = $puntwifi['capa_GENERICA'];
-    $nom_CAPA = $puntwifi['nom_CAPA'];
-    $ed50_COORD_X = $puntwifi['ed50_COORD_X'];
-    $ed50_COORD_Y = $puntwifi['ed50_COORD_Y'];
-    $etrs89_COORD_X = $puntwifi['etrs89_COORD_X'];
-    $etrs89_COORD_Y = $puntwifi['etrs89_COORD_Y'];
-    $longitud = $puntwifi['longitud'];
-    $latitud = $puntwifi['latitud'];
-    $equipament = $puntwifi['equipament'];
-    $districte = $puntwifi['districte'];
-    $barri = $puntwifi['barri'];
-    $nom_DISTRICTE = $puntwifi['nom_DISTRICTE'];
-    $nom_BARRI = $puntwifi['nom_BARRI'];
-    $adreca = $puntwifi['adreca'];
-    $telefon = $puntwifi['telefon'];
+    $CodiCapa = $puntwifi['CodiCapa'];
+    $CapaGenerica = $puntwifi['CapaGenerica'];
+    $NomCapa = $puntwifi['NomCapa'];
+    $ED50CoordX = $puntwifi['ED50CoordX'];
+    $ED50CoordY = $puntwifi['ED50CoordY'];
+    $ETRS89CoordX = $puntwifi['ETRS89CoordX'];
+    $ETRS89CoordY = $puntwifi['ETRS89CoordY'];
+    $Longitud = $puntwifi['Longitud'];
+    $Latitud = $puntwifi['Latitud'];
+    $Equipament = $puntwifi['Equipament'];
+    $Districte = $puntwifi['Districte'];
+    $Barri = $puntwifi['Barri'];
+    $NomDistricte = $puntwifi['NomDistricte'];
+    $NomBarri = $puntwifi['NomBarri'];
+    $Adreca = $puntwifi['Adreca'];
+    $Telefon = $puntwifi['Telefon'];
     if ($acc == 'M') {
       $titulo = 'Editar Punto WIFI';
       $estilo = '';
@@ -230,97 +231,97 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtcodicapa">Codigo CAPA:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtcodicapa" placeholder="Código Capa" value="<?php echo $codi_CAPA; ?>">
+      <input type="text" class="form-control" name="txtcodicapa" placeholder="Código Capa" value="<?php echo $CodiCapa; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtcapagenerica">Capa Genérica:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtcapagenerica" placeholder="Capa Generica"  value="<?php echo $capa_GENERICA; ?>">
+      <input type="text" class="form-control" name="txtcapagenerica" placeholder="Capa Generica"  value="<?php echo $CapaGenerica; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtnomcapa">Nombre Capa:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtnomcapa" placeholder="Nombre Capa"  value="<?php echo $nom_CAPA; ?>">
+      <input type="text" class="form-control" name="txtnomcapa" placeholder="Nombre Capa"  value="<?php echo $NomCapa; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txted50coordx">ED50 Coordenada X:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txted50coordx" placeholder="ED50 Coordenada X" value="<?php echo $ed50_COORD_X; ?>">
+      <input type="text" class="form-control" name="txted50coordx" placeholder="ED50 Coordenada X" value="<?php echo $ED50CoordX; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txted50coordy">ED50 Coordenada Y:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txted50coordy" placeholder="ED50 Coordenada Y" value="<?php echo $ed50_COORD_Y; ?>">
+      <input type="text" class="form-control" name="txted50coordy" placeholder="ED50 Coordenada Y" value="<?php echo $ED50CoordY; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtetrs89coordx">ETRS89 Coordenada X:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtetrs89coordx" placeholder="ETRS89 Coordenada X" value="<?php echo $etrs89_COORD_X; ?>">
+      <input type="text" class="form-control" name="txtetrs89coordx" placeholder="ETRS89 Coordenada X" value="<?php echo $ETRS89CoordX; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtetrs89coordy">ETRS89 Coordenada Y:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtetrs89coordy" placeholder="ETRS89 Coordenada Y" value="<?php echo $etrs89_COORD_Y; ?>">
+      <input type="text" class="form-control" name="txtetrs89coordy" placeholder="ETRS89 Coordenada Y" value="<?php echo $ETRS89CoordY; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtlongitud">Longitud:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtlongitud" placeholder="Longitud" value="<?php echo $longitud; ?>">
+      <input type="text" class="form-control" name="txtlongitud" placeholder="Longitud" value="<?php echo $Longitud; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtlatitud">Latitud:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtlatitud" placeholder="Latitud" value="<?php echo $latitud; ?>">
+      <input type="text" class="form-control" name="txtlatitud" placeholder="Latitud" value="<?php echo $Latitud; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtequipament">Equipament:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtequipament" placeholder="Equipament" value="<?php echo $equipament; ?>">
+      <input type="text" class="form-control" name="txtequipament" placeholder="Equipament" value="<?php echo $Equipament; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtdistricte">Districte:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtdistricte" placeholder="Districte" value="<?php echo $districte; ?>">
+      <input type="text" class="form-control" name="txtdistricte" placeholder="Districte" value="<?php echo $Districte; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtbarri">Barri:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtbarri" placeholder="Barri" value="<?php echo $barri; ?>">
+      <input type="text" class="form-control" name="txtbarri" placeholder="Barri" value="<?php echo $Barri; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtnomdistricte">Nombre distrito:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtnomdistricte" placeholder="Nombre distrito" value="<?php echo $nom_DISTRICTE; ?>">
+      <input type="text" class="form-control" name="txtnomdistricte" placeholder="Nombre distrito" value="<?php echo $NomDistricte; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtnombarri">Nombre barrio:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtnombarri" placeholder="Nombre barrio" value="<?php echo $nom_BARRI; ?>">
+      <input type="text" class="form-control" name="txtnombarri" placeholder="Nombre barrio" value="<?php echo $NomBarri; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txtadreca">Dirección:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txtadreca" placeholder="Dirección" value="<?php echo $adreca; ?>">
+      <input type="text" class="form-control" name="txtadreca" placeholder="Dirección" value="<?php echo $Adreca; ?>">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="txttelefon">Teléfono:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" name="txttelefon" placeholder="Teléfono" value="<?php echo $telefon; ?>">
+      <input type="text" class="form-control" name="txttelefon" placeholder="Teléfono" value="<?php echo $Telefon; ?>">
     </div>
   </div>
   <div class="container">
